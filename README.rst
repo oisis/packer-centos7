@@ -59,9 +59,9 @@ Vagrant
     $ vagrant box add centos7 ./centos-7.1-x86_64.box
 
 
-    centos7 - name for vagrant box
+centos7 - name for vagrant box
 
-    centos-7.1-x86_64.box - new created box with packer
+centos-7.1-x86_64.box - new created box with packer
 
 
 Supported versions
