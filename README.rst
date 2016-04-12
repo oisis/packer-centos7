@@ -43,6 +43,23 @@ Parallel builds can be run on 0.6.0 or latest packer version.
 
     $ packer build -parallel=true template.json
 
+Vagrant
+--------------
+
+- List local vagrant boxes
+
+::
+    $ vagrant box list
+
+- Add new box to Vagrant
+
+::
+    $ vagrant box add centos7 ./centos-7.1-x86_64.box
+
+    centos7 - name for vagrant box
+
+    centos-7.1-x86_64.box - new created box with packer
+
 
 Supported versions
 ------------------
