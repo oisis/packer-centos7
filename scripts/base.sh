@@ -1,9 +1,10 @@
 #!/bin/bash
 
 sed -i "s/^.*requiretty/#Defaults requiretty/" /etc/sudoers
-yum -y install gcc make gcc-c++ kernel-devel-`uname -r` perl grub2-tools puppet 
+yum -y install gcc make gcc-c++ kernel-devel-`uname -r` perl grub2-tools net-tools
 
 yum -y install epel-release.noarch
+yum -y install puppet
 
 # Change network interfaces names back to ethX
 sed -i 's/rhgb/net.ifnames=0 rhgb/g' /etc/default/grub
