@@ -56,7 +56,7 @@ Vagrant
 
 ::
 
-    $ vagrant box add centos7 ./centos-7.1-x86_64.box
+    $ vagrant box add centos71 ./centos-7.1-x86_64.box
 
 
 centos7 - name for vagrant box
