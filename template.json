@@ -28,10 +28,10 @@
       "type": "vagrant",
       "override": {
         "virtualbox": {
-          "output": "centos-7-1-x64-virtualbox.box"
+          "output": "centos71-x64-virtualbox.box"
         },
         "vmware": {
-          "output": "centos-7-1-x64-vmware.box"
+          "output": "centos71-x64-vmware.box"
         }
       }
     }
@@ -40,7 +40,7 @@
     {
       "type": "virtualbox-iso",
       "boot_command": [
-        "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<enter><wait>"
+        "<tab> text append net.ifnames=0 biosdevname=0 ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<enter><wait>"
       ],
       "boot_wait": "10s",
       "disk_size": 40520,
@@ -57,14 +57,14 @@
       "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
       "virtualbox_version_file": ".vbox_version",
       "vboxmanage": [
-        [ "modifyvm", "{{.Name}}", "--memory", "512" ],
-        [ "modifyvm", "{{.Name}}", "--cpus", "1" ]
+        [ "modifyvm", "{{.Name}}", "--memory", "1024" ],
+        [ "modifyvm", "{{.Name}}", "--cpus", "2" ]
       ]
     },
     {
       "type": "vmware-iso",
       "boot_command": [
-        "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<enter><wait>"
+        "<tab> text append net.ifnames=0 biosdevname=0 ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<enter><wait>"
       ],
       "boot_wait": "10s",
       "disk_size": 40520,
@@ -80,8 +80,8 @@
       "shutdown_command": "echo '/sbin/halt -h -p' > /tmp/shutdown.sh; echo 'vagrant'|sudo -S sh '/tmp/shutdown.sh'",
       "tools_upload_flavor": "linux",
       "vmx_data": {
-        "memsize": "512",
-        "numvcpus": "1",
+        "memsize": "1024",
+        "numvcpus": "2",
         "cpuid.coresPerSocket": "1"
       }
     }
